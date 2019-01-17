@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Nisha's Cinema Concessions</title>
+<style>
+body {
+    background-image: url("http://i65.tinypic.com/152jjm1.png"), url("http://ak8.picdn.net/shutterstock/videos/2999608/thumb/1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    background-color: black; /* add height: 100vh, width: 100vw */
+  }
+
+#ordernum {
+  font-family: cursive;
+  font-size: 16px;
+  line-height: 0px;
+}
+
+#totalPrice {
+  font-family: cursive;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 0px;
+}
+
+div {
+  position: relative;; /* or change this to relative  */
+  left: 54%;
+  top: 78%;
+}
+
+</style>
+</head>
+<body>
+<div>
+<p id="ordernum">Order #01729</p>
+<img src="https://media.giphy.com/media/gfvzKnSIZzr9K/giphy.gif" alt="Concessions" width="160"></a>
+<p id="totalPrice"></p> <!-- Final statement will be displayed here-->
+</div>
+<script type="text/javascript">
+function cashRegister() {
+var movieSnacks = ["popcorn", "slushie", "nachos", "hotdogs", "M&Ms"];
+var numSnacks = new Array(); //the array is empty
+ for (i=0; i<movieSnacks.length; i++) {
+ numSnacks.push(prompt("How many orders of " + movieSnacks[i] + " would you like to purchase?"));
+} //input will be added to the new Array
+
+var price = [6.00, 2.75, 5.50, 2.75, 2.00];
+var total = 0;
+	for (i=0; i<movieSnacks.length; i++) {
+	total += (numSnacks[i]*price[i]); /* the product equals each subtotal, which is subsequently
+  added together. the sum of the subtotals equals the final price*/
+}
+
+/* Another method (a littler longer & more math involved):
+var price = [6.00, 2.75, 5.50, 2.75, 2.00];
+var subtotal = new Array();
+	for (i=0; i<movieSnacks.length; i++) {
+	subtotal.push(numSnacks[i]*price[i]);
+}
+var total = 0
+  for (i=0; i<movieSnacks.length; i++) {
+  total += subtotal[i];
+}
+
+OR
+
+var total = subototal[0] + subtotal[1]+ subtotal[2] + subtotal[3] + subtotal[4];
+*/
+document.getElementById("totalPrice").innerHTML = "The total cost is $" + total;
+}
+
+cashRegister();
+</script>
+</body>
+</html>
